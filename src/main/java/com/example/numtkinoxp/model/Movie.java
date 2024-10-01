@@ -12,6 +12,7 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int movieID;
+    private String title;
     private int runningTime;
     private String description;
     private int recommendedAge;
@@ -29,6 +30,13 @@ public class Movie {
 
     public void setMovieID(int movieID) {
         this.movieID = movieID;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getRunningTime() {
