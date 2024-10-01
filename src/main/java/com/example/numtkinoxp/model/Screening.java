@@ -1,10 +1,13 @@
 package com.example.numtkinoxp.model;
 
 import com.example.numtkinoxp.repository.MovieRepository;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Screening {
@@ -21,8 +24,9 @@ public class Screening {
     @ManyToOne
     @JoinColumn(name = "cinemafk",referencedColumnName = "cinemaId")
     private Cinema cinema;
-
-
+    @OneToMany(mappedBy = "screening")
+    @JsonBackReference
+    Set<Ticket> tickets = new HashSet<>();
 
 
     public int getScreeningID() {

@@ -17,6 +17,7 @@ public class Seat {
     @JoinColumn(name = "cinemafk", referencedColumnName = "cinemaId")
     private Cinema cinema;
 
+
     public int getSeatId() {
         return seatId;
     }
@@ -55,5 +56,13 @@ public class Seat {
 
     public void setReserved(boolean reserved) {
         isReserved = reserved;
+    }
+
+    public Cinema getCinema(){
+        return cinema;
+    }
+
+    public void setCinema(Cinema cinema){
+        this.cinema = cinema;
     }
 }

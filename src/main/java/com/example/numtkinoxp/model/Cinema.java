@@ -16,7 +16,7 @@ public class Cinema {
 
     @OneToMany(mappedBy = "cinema")
     @JsonBackReference
-    private Set<Screening> scrennings = new HashSet<>();
+    private Set<Screening> screenings = new HashSet<>();
 
     public int getCinemaId() {
         return cinemaId;

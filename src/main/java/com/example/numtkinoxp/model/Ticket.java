@@ -14,6 +14,20 @@ public class Ticket {
     @JoinColumn(name = "seatfk", referencedColumnName = "seatId")
     private Seat seat;
 
+    @ManyToOne
+    @JoinColumn(name = "screeningfk",referencedColumnName = "screeningID")
+    private Screening screening;
+
+
+    public Screening getScreening() {
+        return screening;
+    }
+
+    public void setScreening(Screening screening) {
+        this.screening = screening;
+    }
+
+
     public Seat getSeat() {
         return seat;
     }
