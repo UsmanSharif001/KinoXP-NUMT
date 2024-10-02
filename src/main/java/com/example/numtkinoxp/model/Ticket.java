@@ -18,6 +18,8 @@ public class Ticket {
     @JoinColumn(name = "screeningfk",referencedColumnName = "screeningID")
     private Screening screening;
 
+    public Ticket() {
+    }
 
     public Screening getScreening() {
         return screening;

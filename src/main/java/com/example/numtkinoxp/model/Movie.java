@@ -24,6 +24,9 @@ public class Movie {
     @JsonBackReference
     private Set<Screening> scrennings  = new HashSet<>();
 
+    public Movie() {
+    }
+
     public int getMovieID() {
         return movieID;
     }
