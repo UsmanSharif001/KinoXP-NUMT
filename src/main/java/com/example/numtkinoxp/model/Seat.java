@@ -17,6 +17,8 @@ public class Seat {
     @JoinColumn(name = "cinemafk", referencedColumnName = "cinemaId")
     private Cinema cinema;
 
+    public Seat() {
+    }
 
     public int getSeatId() {
         return seatId;

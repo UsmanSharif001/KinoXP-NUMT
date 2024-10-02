@@ -18,6 +18,10 @@ public class Cinema {
     @JsonBackReference
     private Set<Screening> screenings = new HashSet<>();
 
+
+    public Cinema() {
+    }
+
     public int getCinemaId() {
         return cinemaId;
     }
