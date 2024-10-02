@@ -21,9 +21,11 @@ public class Screening {
     @ManyToOne
     @JoinColumn(name = "moviefk", referencedColumnName = "movieID")
     private Movie movie;
+
     @ManyToOne
     @JoinColumn(name = "cinemafk",referencedColumnName = "cinemaId")
     private Cinema cinema;
+
     @OneToMany(mappedBy = "screening")
     @JsonBackReference
     Set<Ticket> tickets = new HashSet<>();

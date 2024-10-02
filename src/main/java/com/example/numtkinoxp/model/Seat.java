@@ -1,6 +1,10 @@
 package com.example.numtkinoxp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Seat {
@@ -11,11 +15,15 @@ public class Seat {
     private int rowNr;
     private int seatNr;
     private int price;
-    private boolean isReserved;
+
 
     @ManyToOne
     @JoinColumn(name = "cinemafk", referencedColumnName = "cinemaId")
     private Cinema cinema;
+
+    @OneToMany(mappedBy = "seat")
+    @JsonBackReference
+    Set<Ticket> tickets = new HashSet<Ticket>();
 
 
     public int getSeatId() {
@@ -50,19 +58,12 @@ public class Seat {
         this.price = price;
     }
 
-    public boolean isReserved() {
-        return isReserved;
-    }
 
-    public void setReserved(boolean reserved) {
-        isReserved = reserved;
-    }
-
-    public Cinema getCinema(){
+    public Cinema getCinema() {
         return cinema;
     }
 
-    public void setCinema(Cinema cinema){
+    public void setCinema(Cinema cinema) {
         this.cinema = cinema;
     }
 }

@@ -18,6 +18,10 @@ public class Cinema {
     @JsonBackReference
     private Set<Screening> screenings = new HashSet<>();
 
+    @OneToMany(mappedBy = "cinema")
+    @JsonBackReference
+    private Set<Seat> seats = new HashSet<>();
+
     public int getCinemaId() {
         return cinemaId;
     }

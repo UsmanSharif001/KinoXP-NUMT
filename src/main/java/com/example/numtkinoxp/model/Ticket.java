@@ -10,7 +10,7 @@ public class Ticket {
     private int ticketId;
     private String customerName;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "seatfk", referencedColumnName = "seatId")
     private Seat seat;
 

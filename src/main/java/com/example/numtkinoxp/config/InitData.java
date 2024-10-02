@@ -50,33 +50,49 @@ public class InitData implements CommandLineRunner {
         c1.setName("Bio 1");
         cinemaRepository.save(c1);
 
+        Cinema c2 = new Cinema();
+        c2.setName("Bio 2");
+        cinemaRepository.save(c2);
+
         Screening s1 = new Screening();
-        s1.setDate(LocalDate.of(24,10,1));
+        s1.setDate(LocalDate.of(2024,10,1));
         s1.setTimeOfDay(LocalTime.of(18,30));
         s1.setCinema(c1);
         s1.setMovie(m1);
         screeningRepository.save(s1);
 
         Screening s2 = new Screening();
-        s2.setDate(LocalDate.of(2024,12,1));
-        s2.setTimeOfDay(LocalTime.of(18,30));
+        s2.setDate(LocalDate.of(2024,10,1));
+        s2.setTimeOfDay(LocalTime.of(21,30));
         s2.setCinema(c1);
-        s2.setMovie(m2);
+        s2.setMovie(m1);
         screeningRepository.save(s2);
 
+        Screening s3 = new Screening();
+        s3.setDate(LocalDate.of(2024,10,1));
+        s3.setTimeOfDay(LocalTime.of(21,30));
+        s3.setCinema(c2);
+        s3.setMovie(m2);
+        screeningRepository.save(s3);
+
+        Screening s4 = new Screening();
+        s4.setDate(LocalDate.of(2024,10,1));
+        s4.setTimeOfDay(LocalTime.of(18,30));
+        s4.setCinema(c2);
+        s4.setMovie(m2);
+        screeningRepository.save(s4);
+
         Seat seat1 = new Seat();
-        seat1.setRowNr(10);
-        seat1.setSeatNr(10);
+        seat1.setRowNr(1);
+        seat1.setSeatNr(1);
         seat1.setPrice(100);
-        seat1.setReserved(true);
         seat1.setCinema(c1);
         seatRepository.save(seat1);
 
         Seat seat2 = new Seat();
-        seat2.setRowNr(10);
-        seat2.setSeatNr(11);
-        seat2.setPrice(150);
-        seat2.setReserved(true);
+        seat2.setRowNr(1);
+        seat2.setSeatNr(2);
+        seat2.setPrice(100);
         seat2.setCinema(c1);
         seatRepository.save(seat2);
 
@@ -87,9 +103,9 @@ public class InitData implements CommandLineRunner {
         ticketRepository.save(t1);
 
         Ticket t2 = new Ticket();
-        t2.setCustomerName("Mogens");
+        t2.setCustomerName("Niko");
         t2.setSeat(seat2);
-        t2.setScreening(s2);
+        t2.setScreening(s1);
         ticketRepository.save(t2);
 
 
