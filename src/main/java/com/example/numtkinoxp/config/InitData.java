@@ -33,7 +33,7 @@ public class InitData implements CommandLineRunner {
         m1.setRecommendedAge(12);
         m1.setIs3D(false);
         m1.setActive(true);
-        m1.setHrefImage("Flot billede");
+        m1.setHrefImage("https://flxt.tmsimg.com/assets/p17498_p_v8_ai.jpg");
         movieRepository.save(m1);
 
         Movie m2 = new Movie();
