@@ -23,6 +23,8 @@ public class InitData implements CommandLineRunner {
     @Autowired
     TicketRepository ticketRepository;
 
+
+
     @Override
     public void run(String... args) throws Exception {
 
