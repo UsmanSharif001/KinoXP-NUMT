@@ -18,6 +18,7 @@ public class Movie {
     private int recommendedAge;
     private boolean is3D;
     private boolean isActive;
+    @Column(length = 1255)
     private String hrefImage;
 
 

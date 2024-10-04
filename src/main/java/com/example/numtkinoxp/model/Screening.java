@@ -30,8 +30,6 @@ public class Screening {
     @JsonBackReference
     Set<Ticket> tickets = new HashSet<>();
 
-
-
     public int getScreeningID() {
         return screeningID;
     }
