@@ -27,7 +27,7 @@ public class InitData implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         Movie m1 = new Movie();
-        m1.setTitle("Verdens bedste film");
+        m1.setTitle("Stalker");
         m1.setRunningTime(120);
         m1.setDescription("Fed film, dette er en beskrivelse");
         m1.setRecommendedAge(12);
@@ -37,13 +37,13 @@ public class InitData implements CommandLineRunner {
         movieRepository.save(m1);
 
         Movie m2 = new Movie();
-        m2.setTitle("Film 2");
+        m2.setTitle("The Castle of Cagliostro");
         m2.setRunningTime(140);
         m2.setDescription("Fed film, dette er en beskrivelse for film2");
         m2.setRecommendedAge(5);
         m2.setIs3D(true);
         m2.setActive(true);
-        m2.setHrefImage("Flot billede igen igen");
+        m2.setHrefImage("https://i.ytimg.com/vi/kwGfutnmyUQ/maxresdefault.jpg");
         movieRepository.save(m2);
 
         Cinema c1 = new Cinema();
