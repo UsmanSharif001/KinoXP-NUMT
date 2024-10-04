@@ -20,9 +20,13 @@ public class Movie {
     private boolean isActive;
     private String hrefImage;
 
+
+
     @OneToMany(mappedBy = "movie")
     @JsonBackReference
     private Set<Screening> scrennings  = new HashSet<>();
+
+
 
 
 
@@ -88,4 +92,13 @@ public class Movie {
     public void setHrefImage(String hrefImage) {
         this.hrefImage = hrefImage;
     }
+
+    public Set<Screening> getScrennings() {
+        return scrennings;
+    }
+
+    public void setScrennings(Set<Screening> scrennings) {
+        this.scrennings = scrennings;
+    }
+
 }

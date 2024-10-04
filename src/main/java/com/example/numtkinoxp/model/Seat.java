@@ -21,6 +21,7 @@ public class Seat {
     @JoinColumn(name = "cinemafk", referencedColumnName = "cinemaId")
     private Cinema cinema;
 
+
     @OneToMany(mappedBy = "seat")
     @JsonBackReference
     Set<Ticket> tickets = new HashSet<Ticket>();
