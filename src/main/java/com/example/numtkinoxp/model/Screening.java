@@ -69,4 +69,6 @@ public class Screening {
     public void setCinema(Cinema cinema){
         this.cinema = cinema;
     }
+
+    /* TODO: getTickets */
 }
