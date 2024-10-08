@@ -38,10 +38,5 @@ public class MovieRESTcontroller {
         }
   }
 
-     @GetMapping("/movies/{id}") //Fetcher en movie ud fra dens ID - hvis ikke fundet = null.
-     public Movie getMovieById(@PathVariable int id) {
-        Optional<Movie> movieOptional = movieRepository.findById(id);
-            return movieOptional.orElse(null);
-}
 
 }
