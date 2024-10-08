@@ -15,11 +15,11 @@ public class Cinema {
     private String name;
 
     @OneToMany(mappedBy = "cinema")
-    @JsonBackReference
+    @JsonBackReference("cinema-screenings")
     private Set<Screening> screenings = new HashSet<>();
 
     @OneToMany(mappedBy = "cinema")
-    @JsonBackReference
+    @JsonBackReference("cinema-seats")
     private Set<Seat> seats = new HashSet<>();
 
     public int getCinemaId() {
