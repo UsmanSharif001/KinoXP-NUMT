@@ -24,7 +24,6 @@ public class InitData implements CommandLineRunner {
     TicketRepository ticketRepository;
 
 
-
     @Override
     public void run(String... args) throws Exception {
 
@@ -71,29 +70,29 @@ public class InitData implements CommandLineRunner {
         cinemaRepository.save(c2);
 
         Screening s1 = new Screening();
-        s1.setDate(LocalDate.of(2024,10,1));
-        s1.setTimeOfDay(LocalTime.of(18,30));
+        s1.setDate(LocalDate.of(2024, 10, 1));
+        s1.setTimeOfDay(LocalTime.of(18, 30));
         s1.setCinema(c1);
         s1.setMovie(m1);
         screeningRepository.save(s1);
 
         Screening s2 = new Screening();
-        s2.setDate(LocalDate.of(2024,10,1));
-        s2.setTimeOfDay(LocalTime.of(21,30));
+        s2.setDate(LocalDate.of(2024, 10, 1));
+        s2.setTimeOfDay(LocalTime.of(21, 30));
         s2.setCinema(c1);
         s2.setMovie(m1);
         screeningRepository.save(s2);
 
         Screening s3 = new Screening();
-        s3.setDate(LocalDate.of(2024,10,1));
-        s3.setTimeOfDay(LocalTime.of(21,30));
+        s3.setDate(LocalDate.of(2024, 10, 1));
+        s3.setTimeOfDay(LocalTime.of(21, 30));
         s3.setCinema(c2);
         s3.setMovie(m2);
         screeningRepository.save(s3);
 
         Screening s4 = new Screening();
-        s4.setDate(LocalDate.of(2024,10,1));
-        s4.setTimeOfDay(LocalTime.of(18,30));
+        s4.setDate(LocalDate.of(2024, 10, 1));
+        s4.setTimeOfDay(LocalTime.of(18, 30));
         s4.setCinema(c2);
         s4.setMovie(m2);
         screeningRepository.save(s4);
@@ -102,11 +101,15 @@ public class InitData implements CommandLineRunner {
 
         // init bio1 (large theater) seats
 
-        for (int rowCount = 1; rowCount <= 25 ; rowCount++) {
-            for (int seatCount = 1; seatCount <= 16 ; seatCount++) {
+        for (int rowCount = 1; rowCount <= 25; rowCount++) {
+            for (int seatCount = 1; seatCount <= 16; seatCount++) {
                 Seat seat = new Seat();
                 seat.setCinema(c1); // bio 1
-                seat.setPrice(100);
+                if (rowCount <= 20) { // back seats more expensive
+                    seat.setPrice(100);
+                } else {
+                    seat.setPrice(120);
+                }
                 seat.setRowNr(rowCount);
                 seat.setSeatNr(seatCount);
                 seatRepository.save(seat);
@@ -115,11 +118,15 @@ public class InitData implements CommandLineRunner {
 
         // init bio2 (small theater) seats
 
-        for (int rowCount = 1; rowCount <= 20 ; rowCount++) {
-            for (int seatCount = 1; seatCount <= 12 ; seatCount++) {
+        for (int rowCount = 1; rowCount <= 20; rowCount++) {
+            for (int seatCount = 1; seatCount <= 12; seatCount++) {
                 Seat seat = new Seat();
                 seat.setCinema(c2); // bio 2
-                seat.setPrice(100);
+                if (rowCount <= 2) { // front seats cheaper
+                    seat.setPrice(70);
+                } else {
+                    seat.setPrice(100);
+                }
                 seat.setRowNr(rowCount);
                 seat.setSeatNr(seatCount);
                 seatRepository.save(seat);
