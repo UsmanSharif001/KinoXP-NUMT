@@ -61,12 +61,16 @@ public class InitData implements CommandLineRunner {
 
         Cinema c1 = new Cinema();
         c1.setName("Bio 1");
+        c1.setRowCount(25);
+        c1.setSeatCount(16);
         cinemaRepository.save(c1);
 
         // Bio 2 / small theater
 
         Cinema c2 = new Cinema();
         c2.setName("Bio 2");
+        c2.setRowCount(20);
+        c2.setSeatCount(12);
         cinemaRepository.save(c2);
 
         Screening s1 = new Screening();
@@ -101,8 +105,8 @@ public class InitData implements CommandLineRunner {
 
         // init bio1 (large theater) seats
 
-        for (int rowCount = 1; rowCount <= 25; rowCount++) {
-            for (int seatCount = 1; seatCount <= 16; seatCount++) {
+        for (int rowCount = 1; rowCount <= c1.getRowCount(); rowCount++) {
+            for (int seatCount = 1; seatCount <= c1.getSeatCount(); seatCount++) {
                 Seat seat = new Seat();
                 seat.setCinema(c1); // bio 1
                 if (rowCount <= 20) { // back seats more expensive
@@ -118,8 +122,8 @@ public class InitData implements CommandLineRunner {
 
         // init bio2 (small theater) seats
 
-        for (int rowCount = 1; rowCount <= 20; rowCount++) {
-            for (int seatCount = 1; seatCount <= 12; seatCount++) {
+        for (int rowCount = 1; rowCount <= c2.getRowCount(); rowCount++) {
+            for (int seatCount = 1; seatCount <= c2.getSeatCount(); seatCount++) {
                 Seat seat = new Seat();
                 seat.setCinema(c2); // bio 2
                 if (rowCount <= 2) { // front seats cheaper
