@@ -134,6 +134,33 @@ public class InitData implements CommandLineRunner {
         }
 
         // Create dummy seats only for initializing tickets…
+        LocalDate startDate = LocalDate.of(2024, 10, 8); // Starting from October 1st, 2024
+        LocalTime[] times = {LocalTime.of(18, 30), LocalTime.of(21, 30)}; // 2 time slots per day
+
+        for (int i = 0; i < 7; i++) {  // Loop for 7 days
+            LocalDate currentDate = startDate.plusDays(i); // Increment the date each time
+
+            // Create screenings for movie 1 in cinema 1
+            for (LocalTime time : times) {
+                Screening screening = new Screening();
+                screening.setDate(currentDate);
+                screening.setTimeOfDay(time);
+                screening.setCinema(c1);
+                screening.setMovie(m1);
+                screeningRepository.save(screening);
+            }
+
+            // Create screenings for movie 2 in cinema 2
+            for (LocalTime time : times) {
+                Screening screening = new Screening();
+                screening.setDate(currentDate);
+                screening.setTimeOfDay(time);
+                screening.setCinema(c2);
+                screening.setMovie(m2);
+                screeningRepository.save(screening);
+            }
+        }
+
         Seat seat1 = new Seat();
         seat1.setSeatId(1);
 

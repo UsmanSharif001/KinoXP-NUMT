@@ -4,6 +4,8 @@ import com.example.numtkinoxp.model.Movie;
 import com.example.numtkinoxp.model.Screening;
 import com.example.numtkinoxp.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,14 +27,14 @@ public class MovieRESTcontroller {
         return movieRepository.findAll();
     }
 
-    @GetMapping("/{id}/screenings")
-    public Set<Screening> getScreeningsForMovie(@PathVariable int id){
+    @GetMapping("/movies/{id}/screenings")
+    public ResponseEntity<Set<Screening>> getScreeningsForMovie(@PathVariable int id){
         Optional<Movie> movieOptional = movieRepository.findById(id);
         if(movieOptional.isPresent()){
             Movie movie = movieOptional.get();
-            return movie.getScrennings();
+            return ResponseEntity.ok(movie.getScrennings());
         } else {
-            return null;
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
   }
 
