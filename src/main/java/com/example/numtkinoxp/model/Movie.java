@@ -24,7 +24,7 @@ public class Movie {
 
 
     @OneToMany(mappedBy = "movie")
-    @JsonBackReference
+    @JsonBackReference("movie-screenings")
     private Set<Screening> scrennings  = new HashSet<>();
 
     public int getMovieID() {
