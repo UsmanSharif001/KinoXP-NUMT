@@ -166,10 +166,16 @@ public class InitData implements CommandLineRunner {
         }
 
         Seat seat1 = new Seat();
-        seat1.setSeatId(1);
+        seat1.setSeatId(344);
 
         Seat seat2 = new Seat();
-        seat2.setSeatId(2);
+        seat2.setSeatId(345);
+
+        Seat seat3 = new Seat();
+        seat3.setSeatId(561);
+
+        Seat seat4 = new Seat();
+        seat4.setSeatId(562);
 
         Ticket t1 = new Ticket();
         t1.setCustomerName("Niko");
@@ -182,6 +188,24 @@ public class InitData implements CommandLineRunner {
         t2.setSeat(seat2);
         t2.setScreening(s1);
         ticketRepository.save(t2);
+
+        Ticket t3 = new Ticket();
+        t3.setCustomerName("Joko");
+        t3.setSeat(seat1);
+        t3.setScreening(s2);
+        ticketRepository.save(t3);
+
+        Ticket t4 = new Ticket();
+        t4.setCustomerName("Gumbi");
+        t4.setSeat(seat3);
+        t4.setScreening(s3);
+        ticketRepository.save(t4);
+
+        Ticket t5 = new Ticket();
+        t5.setCustomerName("Gumbi");
+        t5.setSeat(seat4);
+        t5.setScreening(s3);
+        ticketRepository.save(t5);
 
 
     }
