@@ -26,7 +26,6 @@ public class Seat {
     @JsonBackReference
     Set<Ticket> tickets = new HashSet<Ticket>();
 
-
     public int getSeatId() {
         return seatId;
     }
