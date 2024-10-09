@@ -13,13 +13,15 @@ public class Cinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cinemaId;
     private String name;
+    private int rowCount;
+    private int seatCount;
 
     @OneToMany(mappedBy = "cinema")
-    @JsonBackReference
+    @JsonBackReference("cinema-screenings")
     private Set<Screening> screenings = new HashSet<>();
 
     @OneToMany(mappedBy = "cinema")
-    @JsonBackReference
+    @JsonBackReference("cinema-seats")
     private Set<Seat> seats = new HashSet<>();
 
     public int getCinemaId() {
@@ -36,5 +38,21 @@ public class Cinema {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
+    public int getSeatCount() {
+        return seatCount;
+    }
+
+    public void setSeatCount(int seatCount) {
+        this.seatCount = seatCount;
     }
 }
