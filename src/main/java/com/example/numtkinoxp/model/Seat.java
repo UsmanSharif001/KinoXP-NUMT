@@ -66,4 +66,8 @@ public class Seat {
     public void setCinema(Cinema cinema) {
         this.cinema = cinema;
     }
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
 }
