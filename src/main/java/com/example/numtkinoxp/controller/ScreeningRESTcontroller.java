@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @CrossOrigin(origins = "*")
@@ -28,5 +29,10 @@ public class ScreeningRESTcontroller {
 //    public List<Screening> getScreening(@PathVariable int movieID){
 //       return screeningRepository.findScreeningByMovieID(movieID);
 //    }
+
+    @GetMapping("selectedscreening/screeningID={screeningID}")
+    public Optional<Screening> getScreeningByID(@PathVariable("screeningID") int screeningID){
+        return screeningRepository.findById(screeningID);
+    }
     
 }

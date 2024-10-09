@@ -61,12 +61,16 @@ public class InitData implements CommandLineRunner {
 
         Cinema c1 = new Cinema();
         c1.setName("Bio 1");
+        c1.setRowCount(25);
+        c1.setSeatCount(16);
         cinemaRepository.save(c1);
 
         // Bio 2 / small theater
 
         Cinema c2 = new Cinema();
         c2.setName("Bio 2");
+        c2.setRowCount(20);
+        c2.setSeatCount(12);
         cinemaRepository.save(c2);
 
         Screening s1 = new Screening();
@@ -101,8 +105,8 @@ public class InitData implements CommandLineRunner {
 
         // init bio1 (large theater) seats
 
-        for (int rowCount = 1; rowCount <= 25; rowCount++) {
-            for (int seatCount = 1; seatCount <= 16; seatCount++) {
+        for (int rowCount = 1; rowCount <= c1.getRowCount(); rowCount++) {
+            for (int seatCount = 1; seatCount <= c1.getSeatCount(); seatCount++) {
                 Seat seat = new Seat();
                 seat.setCinema(c1); // bio 1
                 if (rowCount <= 20) { // back seats more expensive
@@ -118,8 +122,8 @@ public class InitData implements CommandLineRunner {
 
         // init bio2 (small theater) seats
 
-        for (int rowCount = 1; rowCount <= 20; rowCount++) {
-            for (int seatCount = 1; seatCount <= 12; seatCount++) {
+        for (int rowCount = 1; rowCount <= c2.getRowCount(); rowCount++) {
+            for (int seatCount = 1; seatCount <= c2.getSeatCount(); seatCount++) {
                 Seat seat = new Seat();
                 seat.setCinema(c2); // bio 2
                 if (rowCount <= 2) { // front seats cheaper
@@ -162,10 +166,16 @@ public class InitData implements CommandLineRunner {
         }
 
         Seat seat1 = new Seat();
-        seat1.setSeatId(1);
+        seat1.setSeatId(344);
 
         Seat seat2 = new Seat();
-        seat2.setSeatId(2);
+        seat2.setSeatId(345);
+
+        Seat seat3 = new Seat();
+        seat3.setSeatId(561);
+
+        Seat seat4 = new Seat();
+        seat4.setSeatId(562);
 
         Ticket t1 = new Ticket();
         t1.setCustomerName("Niko");
@@ -178,6 +188,24 @@ public class InitData implements CommandLineRunner {
         t2.setSeat(seat2);
         t2.setScreening(s1);
         ticketRepository.save(t2);
+
+        Ticket t3 = new Ticket();
+        t3.setCustomerName("Joko");
+        t3.setSeat(seat1);
+        t3.setScreening(s2);
+        ticketRepository.save(t3);
+
+        Ticket t4 = new Ticket();
+        t4.setCustomerName("Gumbi");
+        t4.setSeat(seat3);
+        t4.setScreening(s3);
+        ticketRepository.save(t4);
+
+        Ticket t5 = new Ticket();
+        t5.setCustomerName("Gumbi");
+        t5.setSeat(seat4);
+        t5.setScreening(s3);
+        ticketRepository.save(t5);
 
 
     }
