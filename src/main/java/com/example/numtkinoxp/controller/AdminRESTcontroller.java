@@ -1,7 +1,9 @@
 package com.example.numtkinoxp.controller;
 
 import com.example.numtkinoxp.model.Movie;
+import com.example.numtkinoxp.model.Screening;
 import com.example.numtkinoxp.repository.MovieRepository;
+import com.example.numtkinoxp.repository.ScreeningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,18 +21,33 @@ public class AdminRESTcontroller {
     @Autowired
     MovieRepository movieRepository;
 
+    @Autowired
+    ScreeningRepository screeningRepository;
+
+    @GetMapping("/screenings")
+    public ResponseEntity<List<Screening>> getAllScreenings() {
+        List<Screening> screenings = screeningRepository.findAll();
+        return new ResponseEntity<>(screenings, HttpStatus.OK);
+    }
+
     @GetMapping("/movies")
-    public ResponseEntity<List<Movie>>getAllMovies() {
-        List<Movie> movies = movieRepository.findAll();
+    public ResponseEntity<List<Movie>> getAllMovies() {
+        List<Movie> movies = movieRepository.findAllByIsActiveTrue();
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
     @PostMapping("/createmovie")
     public ResponseEntity<Movie> createMovie(@RequestBody Movie newMovie) {
         System.out.println("Received movie: " + newMovie);
+        if (newMovie.getScrennings() != null) {
+            newMovie.getScrennings().forEach(screening -> {
+                System.out.println("Associated screening: " + screening);
+            });
+        }
         Movie savedMovie = movieRepository.save(newMovie);
         return new ResponseEntity<>(savedMovie, HttpStatus.CREATED);
     }
+
 
     @GetMapping("/movie/{movieId}")
     public ResponseEntity<Movie> getMovieById(@PathVariable Integer movieId) {
@@ -62,10 +79,13 @@ public class AdminRESTcontroller {
     public ResponseEntity<String> deleteMovie(@PathVariable Integer movieId) {
         Optional<Movie> movie = movieRepository.findById(movieId);
         if (movie.isPresent()) {
-            movieRepository.deleteById(movieId);
-            return ResponseEntity.ok("Movie deleted");
+            Movie movieToDelete = movie.get();
+            movieToDelete.setActive(false); // Her bliver den til inaktiv når man sletter, arkiveret (til fremtidig implementering)
+            movieRepository.save(movieToDelete);
+            return ResponseEntity.ok("Movie marked as inactive.");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Movie not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Movie not found.");
         }
     }
+
 }

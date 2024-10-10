@@ -23,7 +23,7 @@ public class Movie {
 
 
 
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference("movie-screenings")
     private Set<Screening> scrennings  = new HashSet<>();
 
