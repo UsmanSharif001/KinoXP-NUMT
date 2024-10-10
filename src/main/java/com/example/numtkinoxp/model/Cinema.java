@@ -55,4 +55,8 @@ public class Cinema {
     public void setSeatCount(int seatCount) {
         this.seatCount = seatCount;
     }
+
+    public Set<Seat> getSeats() {
+        return seats;
+    }
 }
