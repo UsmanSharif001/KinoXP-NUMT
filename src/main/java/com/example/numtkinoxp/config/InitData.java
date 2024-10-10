@@ -101,6 +101,13 @@ public class InitData implements CommandLineRunner {
         s4.setMovie(m2);
         screeningRepository.save(s4);
 
+        Screening s5 = new Screening();
+        s5.setDate(LocalDate.of(2024, 10, 10));
+        s5.setTimeOfDay(LocalTime.of(21, 30));
+        s5.setCinema(c2);
+        s5.setMovie(m3);
+        screeningRepository.save(s5);
+
         /* TODO: Init seats with loops */
 
         // init bio1 (large theater) seats
