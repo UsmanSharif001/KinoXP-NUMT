@@ -184,6 +184,39 @@ public class InitData implements CommandLineRunner {
         Seat seat4 = new Seat();
         seat4.setSeatId(562);
 
+        Seat seat5 = new Seat();
+        seat5.setSeatId(167);
+
+        Seat seat6 = new Seat();
+        seat6.setSeatId(168);
+
+        Seat seat7 = new Seat();
+        seat7.setSeatId(166);
+
+        Seat seat8 = new Seat();
+        seat8.setSeatId(181);
+
+        Seat seat9 = new Seat();
+        seat9.setSeatId(182);
+
+        Seat seat10 = new Seat();
+        seat10.setSeatId(267);
+
+        Seat seat11 = new Seat();
+        seat11.setSeatId(268);
+
+        Seat seat12 = new Seat();
+        seat12.setSeatId(298);
+
+        Seat seat13 = new Seat();
+        seat13.setSeatId(299);
+
+        Seat seat14 = new Seat();
+        seat14.setSeatId(297);
+
+        Seat seat15 = new Seat();
+        seat15.setSeatId(300);
+
         Ticket t1 = new Ticket();
         t1.setCustomerName("Niko");
         t1.setSeat(seat1);
@@ -214,7 +247,70 @@ public class InitData implements CommandLineRunner {
         t5.setScreening(s3);
         ticketRepository.save(t5);
 
+        Ticket t6 = new Ticket();
+        t6.setCustomerName("Thea");
+        t6.setSeat(seat5);
+        t6.setScreening(s1);
+        ticketRepository.save(t6);
 
+        Ticket t7 = new Ticket();
+        t7.setCustomerName("Thea");
+        t7.setSeat(seat6);
+        t7.setScreening(s1);
+        ticketRepository.save(t7);
+
+        Ticket t8 = new Ticket();
+        t8.setCustomerName("Thea");
+        t8.setSeat(seat7);
+        t8.setScreening(s1);
+        ticketRepository.save(t8);
+
+        Ticket t9 = new Ticket();
+        t9.setCustomerName("Marie");
+        t9.setSeat(seat8);
+        t9.setScreening(s1);
+        ticketRepository.save(t9);
+
+        Ticket t10 = new Ticket();
+        t10.setCustomerName("Marie");
+        t10.setSeat(seat9);
+        t10.setScreening(s1);
+        ticketRepository.save(t10);
+
+        Ticket t11 = new Ticket();
+        t11.setCustomerName("Usman");
+        t11.setSeat(seat10);
+        t11.setScreening(s1);
+        ticketRepository.save(t11);
+
+        Ticket t12 = new Ticket();
+        t12.setCustomerName("Usman");
+        t12.setSeat(seat11);
+        t12.setScreening(s1);
+        ticketRepository.save(t12);
+
+        Ticket t13 = new Ticket();
+        t13.setCustomerName("Usman");
+        t13.setSeat(seat12);
+        t13.setScreening(s1);
+        ticketRepository.save(t13);
+
+        Ticket t14 = new Ticket();
+        t14.setCustomerName("John");
+        t14.setSeat(seat13);
+        t14.setScreening(s1);
+        ticketRepository.save(t14);
+
+        Ticket t15 = new Ticket();
+        t15.setCustomerName("John");
+        t15.setSeat(seat14);
+        t15.setScreening(s1);
+        ticketRepository.save(t15);
+
+        Ticket t16 = new Ticket();
+        t16.setCustomerName("John");
+        t16.setSeat(seat15);
+        t16.setScreening(s1);
+        ticketRepository.save(t16);
     }
-
 }
